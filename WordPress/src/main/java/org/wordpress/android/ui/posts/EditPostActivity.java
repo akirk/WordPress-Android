@@ -141,6 +141,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -477,7 +478,7 @@ public class EditPostActivity extends AppCompatActivity implements
         EventBus.getDefault().register(this);
 
         if (mEditorMediaUploadListener != null) {
-            List<MediaModel> uploadingMediaInPost = UploadService.getPendingMediaForPost(mPost);
+            Set<MediaModel> uploadingMediaInPost = UploadService.getPendingMediaForPost(mPost);
             for (MediaModel media : uploadingMediaInPost) {
                 if (media != null) {
                     mEditorMediaUploadListener.onMediaUploadReattached(String.valueOf(media.getId()),
