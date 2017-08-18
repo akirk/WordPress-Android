@@ -426,17 +426,6 @@ public class EditPostActivity extends AppCompatActivity implements
 
         String newContent = AztecEditorFragment.resetUploadingMediaToFailed(this, oldContent);
 
-        // now check if the newcontent still has items marked as failed. If it does,
-        // then hook this post up to our error list, so it can be queried by the Posts List later
-        // and be shown properly to the user
-        if (AztecEditorFragment.hasMediaItemsMarkedFailed(this, newContent)) {
-            // TODO This should be unnecessary if we correctly mirror media errors in the UploadStore
-            // If the error came through a OnMediaUploaded event, the UploadStore should be updated already
-            // If we manually flagged the media as errored (e.g. on app restart), we should reflect that new state
-            // in the background in FluxC
-            UploadService.markPostAsError(mPost);
-        }
-
         if (!TextUtils.isEmpty(oldContent) && newContent != null && oldContent.compareTo(newContent) != 0) {
             mPost.setContent(newContent);
 
