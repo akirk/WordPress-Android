@@ -40,6 +40,9 @@ public class LoginMagicLinkInterceptActivity extends LocaleAwareActivity {
 
         if (hasMagicLinkLoginIntent()) {
             intent.putExtra(WPMainActivity.ARG_IS_MAGIC_LINK_LOGIN, true);
+            if (hasMagicLinkVmIndicator()) {
+                intent.putExtra(WPMainActivity.ARG_IS_MAGIC_LINK_IN_VM, true);
+            }
 
             if (hasMagicLinkSignupIntent()) {
                 mLoginAnalyticsListener.trackSignupMagicLinkOpened();
@@ -63,6 +66,11 @@ public class LoginMagicLinkInterceptActivity extends LocaleAwareActivity {
     private boolean hasMagicLinkLoginIntent() {
         String host = (mUri != null && mUri.getHost() != null) ? mUri.getHost() : "";
         return Intent.ACTION_VIEW.equals(mAction) && host.contains(LoginActivity.MAGIC_LOGIN);
+    }
+
+    private boolean hasMagicLinkVmIndicator() {
+        String parameter = (mUri != null && mUri.getQueryParameter(LoginActivity.VM_PARAMETER) != null) ? true : false;
+        return Intent.ACTION_VIEW.equals(mAction) && parameter;
     }
 
     private boolean hasMagicLinkSignupIntent() {

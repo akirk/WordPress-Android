@@ -159,6 +159,7 @@ public class WPMainActivity extends LocaleAwareActivity implements
     public static final String ARG_DO_LOGIN_UPDATE = "ARG_DO_LOGIN_UPDATE";
     public static final String ARG_IS_MAGIC_LINK_LOGIN = "ARG_IS_MAGIC_LINK_LOGIN";
     public static final String ARG_IS_MAGIC_LINK_SIGNUP = "ARG_IS_MAGIC_LINK_SIGNUP";
+    public static final String ARG_IS_MAGIC_LINK_IN_VM = "ARG_IS_MAGIC_LINK_IN_VM";
     public static final String ARG_JETPACK_CONNECT_SOURCE = "ARG_JETPACK_CONNECT_SOURCE";
     public static final String ARG_OLD_SITES_IDS = "ARG_OLD_SITES_IDS";
     public static final String ARG_OPENED_FROM_PUSH = "opened_from_push";

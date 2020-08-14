@@ -49,6 +49,7 @@ public class LoginEpilogueFragment extends LoginBaseFormFragment<LoginEpilogueLi
     private SitePickerAdapter mAdapter;
     private boolean mDoLoginUpdate;
     private boolean mShowAndReturn;
+    private boolean mIsInsideVM;
     private ArrayList<Integer> mOldSitesIds;
 
     private LoginEpilogueListener mLoginEpilogueListener;
@@ -120,6 +121,7 @@ public class LoginEpilogueFragment extends LoginBaseFormFragment<LoginEpilogueLi
         mDoLoginUpdate = getArguments().getBoolean(ARG_DO_LOGIN_UPDATE);
         mShowAndReturn = getArguments().getBoolean(ARG_SHOW_AND_RETURN);
         mOldSitesIds = getArguments().getIntegerArrayList(ARG_OLD_SITES_IDS);
+        mIsInsideVM = getArguments().getBoolean(ARG_IS_MAGIC_LINK_IN_VM);
     }
 
     @Override
@@ -128,7 +130,9 @@ public class LoginEpilogueFragment extends LoginBaseFormFragment<LoginEpilogueLi
 
         if (savedInstanceState == null) {
             AnalyticsTracker.track(AnalyticsTracker.Stat.LOGIN_EPILOGUE_VIEWED);
-            mUnifiedLoginTracker.track(Step.SUCCESS);
+            if (!mIsInsideVM) {
+                mUnifiedLoginTracker.track(Step.SUCCESS);
+            }
         }
     }
 

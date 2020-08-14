@@ -92,6 +92,7 @@ public class LoginActivity extends LocaleAwareActivity implements ConnectionCall
     public static final String ARG_JETPACK_CONNECT_SOURCE = "ARG_JETPACK_CONNECT_SOURCE";
     public static final String MAGIC_LOGIN = "magic-login";
     public static final String TOKEN_PARAMETER = "token";
+    public static final String VM_PARAMTER = "vm";
 
     private static final String KEY_SIGNUP_SHEET_DISPLAYED = "KEY_SIGNUP_SHEET_DISPLAYED";
     private static final String KEY_SMARTLOCK_HELPER_STATE = "KEY_SMARTLOCK_HELPER_STATE";
