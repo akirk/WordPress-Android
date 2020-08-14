@@ -69,7 +69,7 @@ public class LoginMagicLinkInterceptActivity extends LocaleAwareActivity {
     }
 
     private boolean hasMagicLinkVmIndicator() {
-        String parameter = (mUri != null && mUri.getQueryParameter(LoginActivity.VM_PARAMETER) != null) ? true : false;
+        String parameter = mUri != null && mUri.getQueryParameter(LoginActivity.VM_PARAMETER) != null;
         return Intent.ACTION_VIEW.equals(mAction) && parameter;
     }
 
